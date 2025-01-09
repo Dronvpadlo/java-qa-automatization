@@ -1,9 +1,15 @@
-package baseConfig;
+package base.config;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.testng.annotations.*;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import com.codeborne.selenide.testng.TextReport;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
+@Listeners({TextReport.class})
 public class BaseTest {
 
 //    @BeforeGroups
@@ -24,6 +30,10 @@ public class BaseTest {
         Configuration.screenshots = false;
         Configuration.savePageSource = false;
         Configuration.pageLoadTimeout = 100000;
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(false));
     }
 
     @BeforeMethod

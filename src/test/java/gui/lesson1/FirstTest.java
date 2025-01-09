@@ -1,6 +1,6 @@
 package gui.lesson1;
 
-import baseConfig.BaseTest;
+import base.config.BaseTest;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.$;

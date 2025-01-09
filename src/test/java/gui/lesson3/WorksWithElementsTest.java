@@ -1,6 +1,6 @@
 package gui.lesson3;
 
-import baseConfig.BaseTest;
+import base.config.BaseTest;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;

@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="myFirstSuite" parallel="true" thread-count="3">
-    <test name="regressions tests">
+    <test name="Detail item test">
             <packages>
-                <package name="gui.lesson1"/>
+                <package name="gui.lesson7.*"/>
             </packages>
     </test>
-<!--    <groups>-->
-<!--        <run>-->
-<!--            <include name="vpadlo"/>-->
-<!--        </run>-->
-<!--    </groups>-->
-<!--    <packages>-->
-<!--        <package name="giu.lesson3"/>-->
-<!--    </packages>-->
 </suite>
