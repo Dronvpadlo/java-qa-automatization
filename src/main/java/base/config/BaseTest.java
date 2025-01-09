@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.selenide.testng.TextReport;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -25,9 +26,10 @@ public class BaseTest {
     @BeforeClass
     public void configuration(){
         Configuration.browser = "chrome";
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
         Configuration.timeout = 100000;
-        Configuration.screenshots = false;
+        Configuration.screenshots = true;
+        Configuration.headless = true;
         Configuration.savePageSource = false;
         Configuration.pageLoadTimeout = 100000;
 
@@ -41,12 +43,12 @@ public class BaseTest {
         Selenide.open("https://www.saucedemo.com/");
     }
 
-//    @AfterMethod
-//    public void cleanWebDriver(){
-//        Selenide.clearBrowserCookies();
-//        Selenide.refresh();
-//        Selenide.open("about:blank");
-//    }
+    @AfterMethod
+    public void cleanWebDriver(){
+        Selenide.clearBrowserCookies();
+        Selenide.refresh();
+        Selenide.open("about:blank");
+    }
 //
 //    @AfterClass
 //    public void closeBrowser(){
